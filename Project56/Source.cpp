@@ -133,40 +133,13 @@ void counter(const char* strin, char* strout) {
 		case 'Z':
 			strcpy(res, "--..");
 			break;
+		case '\n':
+			res[strlen(res)] = '\n';
+			break;
 		default:
-			strcpy(res, "0");
+			res[strlen(res)] = '0';
 			break;
 		}
 		strcat(strout, res);
 	}
-	
-	/*char result[250] = {};
-	memset(strout, 0, sizeof(char) * 250);
-	strcat(strout, strin);
-	char ds = strout[0];
-	int was = 0;
-	for (int i = 0; i < strlen(strin); i++) {
-
-		if (ds == '^') {
-			ds = strout[was];
-			was++;
-			continue;
-		}
-		int count = 0;
-		for (int i = 0; i < strlen(strout); i++) {
-			if (strout[i] == ds) {
-				count++;
-				strout[i] = '^';
-			}
-		}
-		char time_t[50] = {};
-		sprintf(time_t, "'%c' = %d\n", ds, count);
-		strcat(result, time_t);
-		count = 0;
-		ds = strout[was];
-		was++;
-
-   	}
-	memset(strout, 0, sizeof(char) * 250);
-	strcat(strout, result);*/
 }
